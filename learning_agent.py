@@ -2,7 +2,7 @@ import os, subprocess
 from numpy import ones, zeros, loadtxt
 from pylab import plot, show, xlabel, ylabel, arange
 
-filename = 'training.txt'
+filename = 'new_training_data.txt'
 
 # Agent args should always be specified last
 run_params = 'python pacman.py -p MinimaxAgent -a '
