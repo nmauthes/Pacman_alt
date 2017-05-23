@@ -4,7 +4,7 @@ output_filename = 'new_training_data.txt'
 # Agent args should always be specified last
 run_params = 'python pacman.py -p MinimaxAgent -q -a '
 
-num_runs = 2
+num_runs = 2000
 rand_range = (-4., 4.)
 
 def run_training(wts):
