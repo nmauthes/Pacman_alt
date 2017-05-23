@@ -11,6 +11,9 @@ num_games = 1
 show_graphics = True
 print_chart = True
 
+gd_iterations = 500
+learning_rate = .01
+
 def compute_cost(x_values, y_values, weights): # The function for determining cost (error) in the gradient descent function
     m = y_values.size
     predictions = x_values.dot(weights)
@@ -19,11 +22,11 @@ def compute_cost(x_values, y_values, weights): # The function for determining co
     
     return J # Goal is to minimize the error for function J
     
-def gradient_descent(x_values, y_values, weights, learning_rate, iterations): # Finds the set of weights that minimize the error (linear regression)
+def gradient_descent(x_values, y_values, weights, learning_rate, gd_iterations): # Finds the set of weights that minimize the error (linear regression)
     m = y_values.size
-    J_history = zeros(shape=(iterations, 1))
+    J_history = zeros(shape=(gd_iterations, 1))
  
-    for i in range(iterations):
+    for i in range(gd_iterations):
         predictions = x_values.dot(weights)
         theta_size = weights.size
 
@@ -53,13 +56,10 @@ y_values.shape = (m, 1)
 it = ones(shape=(m, 7))
 it[:, 1:7] = x_values
 
-iterations = 500
-learning_rate = .01
-
 weights = zeros(shape=(7,1))
 
 # Run gradient descent to find optimal weights
-weights, J_history = gradient_descent(it, y_values, weights, learning_rate, iterations)
+weights, J_history = gradient_descent(it, y_values, weights, learning_rate, gd_iterations)
 
 wts = weights[1:]
 wts = [a for b in wts for a in b] # Convert numpy array to 1D list
@@ -76,7 +76,7 @@ out = subprocess.check_output(run_cmd) # Run the game
 print out
 
 if print_chart: # Print a graph showing the gradient descent
-    plot(arange(iterations), J_history)
+    plot(arange(gd_iterations), J_history)
     xlabel('Iterations')
     ylabel('Cost')
     show()
