@@ -115,6 +115,8 @@ class MultiAgentSearchAgent(Agent):
         _w4 = float(w4)
         _w5 = float(w5)
         _w6 = float(w6)
+        
+        print 'Using weights:' + str([_w1, _w2, _w3, _w4, _w5, _w6])
 
 class MinimaxAgent(MultiAgentSearchAgent):
     """
@@ -304,7 +306,7 @@ def betterEvaluationFunction(currentGameState):
     evaluation_score = _w1 * current_score + _w2 * num_capsules + _w3 * num_food + _w4 * dist_closest_food + _w5 * (float(1) / dist_closest_active_ghost) + _w6 * dist_closest_scared_ghost
     
     # Note: Weights should be changed to variables so we can modify them with the learning function
-
+    
     return evaluation_score
     
 # Abbreviation
