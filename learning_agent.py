@@ -7,9 +7,10 @@ filename = 'new_training_data.txt'
 # Agent args should always be specified last
 run_params = 'python pacman.py -p MinimaxAgent -a '
 
-num_games = 1
-show_graphics = True
+num_games = 50
+show_graphics = False
 print_chart = True
+depth = 3
 
 gd_iterations = 500
 learning_rate = .01
@@ -65,14 +66,14 @@ wts = weights[1:]
 wts = [a for b in wts for a in b] # Convert numpy array to 1D list
 
 # The arguments (weights) to be passed to the agent constructor
-agent_args = 'w1={},w2={},w3={},w4={},w5={},w6={}'.format(wts[0], wts[1], wts[2], wts[3], wts[4], wts[5])
+agent_args = 'depth={},w1={},w2={},w3={},w4={},w5={},w6={}'.format(depth, wts[0], wts[1], wts[2], wts[3], wts[4], wts[5])
 run_cmd = run_params + agent_args + ' -n ' + str(num_games)
 
 if not show_graphics:
     run_cmd = run_cmd + ' -q'
 
 print run_cmd
-out = subprocess.check_output(run_cmd) # Run the game
+out = subprocess.check_output(run_cmd, shell=True) # Run the game
 print out
 
 if print_chart: # Print a graph showing the gradient descent
