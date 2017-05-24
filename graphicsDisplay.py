@@ -262,7 +262,7 @@ class PacmanGraphics:
         begin_graphics(screen_width,
                        screen_height,
                        BACKGROUND_COLOR,
-                       "CS 156 Jchee-man")
+                       "CS 156 Final Project")
 
     def drawPacman(self, pacman, index):
         position = self.getPosition(pacman)

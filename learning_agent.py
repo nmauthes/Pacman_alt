@@ -7,10 +7,10 @@ filename = 'new_training_data.txt'
 # Agent args should always be specified last
 run_params = 'python pacman.py -p MinimaxAgent -a '
 
-num_games = 50
-show_graphics = False
+num_games = 1
+show_graphics = True
 print_chart = True
-depth = 3
+depth = 2
 
 gd_iterations = 500
 learning_rate = .01
